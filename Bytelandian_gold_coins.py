@@ -1,20 +1,25 @@
 import math
 #Need to create a recursive function for this so that 24=27
 #Need to update this to include memo (dynamic programming) . Recursion - O(2^n) Recursion incl memo -- O(n)
+
+def memoize(f):
+    memo = {}
+    def helper(x):
+        if x not in memo:            
+            memo[x] = f(x)
+        return memo[x]
+    return helper
+
+@memoize
 def exchange(num):
     nv=0
-    memo=[]
-    if len(memo)<num:
-        for i in range(1,4):
-            xi=math.floor(num/(i+1))
-            if xi<12:
-                ni=xi
-            else:
-                ni=exchange(xi)
-            nv+=ni
-        memo.insert(num, nv)
-    else:
-        nv=memo[num]
+    for i in range(1,4):
+        xi=math.floor(num/(i+1))
+        if xi<12:
+            ni=xi
+        else:
+            ni=exchange(xi)
+        nv+=ni
     return nv
     
 inputs=[]
