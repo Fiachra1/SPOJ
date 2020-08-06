@@ -15,7 +15,7 @@ def exchange(num):
         
 while True:
     try:
-        coin_value=int(raw_input())
+        coin_value=int(input())
         new_value=exchange(coin_value)
         if coin_value<new_value:
             print(new_value)
