@@ -1,6 +1,4 @@
 import math
-
-
 #Need to create a recursive function for this so that 24=27
 def exchange(num):
     nv=0
@@ -12,14 +10,18 @@ def exchange(num):
             ni=exchange(xi)
         nv+=ni
     return nv
-        
+    
 while True:
+    inputs=[]
     try:
-        coin_value=int(input())
-        new_value=exchange(coin_value)
-        if coin_value<new_value:
-            print(new_value)
-        else:
-            print(coin_value)
+        for i in range (10):
+            inputs.append(int(input()))
     except:
         break
+        
+for val in inputs:
+    new_value=exchange(val)
+    if val<new_value:
+        print(new_value)
+    else:
+        print(val)
