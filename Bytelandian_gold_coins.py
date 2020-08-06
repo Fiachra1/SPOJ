@@ -12,13 +12,11 @@ def exchange(num):
     return nv
     
 inputs=[]
-for i in range (10):
-    input_str=input()
-    if input_str !="":
-        input_int=int(input_str)
+while True:
+    try:
+        input_int=int(input())
         inputs.append(input_int)
-        i+=1
-    else:
+    except:
         break
     
        
